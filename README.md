@@ -197,9 +197,11 @@ Compléter les noms du groupe et les informations d’encadrement avant remise. 
 
 ## Livrables fournis
 
-- `docs/rapport.pdf` : rapport technique de 12 pages, avec mesures et captures.
+- `docs/rapport.pdf` : rapport professionnel de **45 pages**, introduction générale, six chapitres, sommaire lié et **30 figures** dont les captures expliquées de toutes les interfaces.
+- `docs/rapport-professionnel.md` : version textuelle éditable du rapport ; identité de couverture dans `docs/tools/report-identity.json`.
 - `docs/presentation.pptx` et `docs/presentation.pdf` : 12 diapositives, notes de présentation et graphique modifiable.
-- `demo/geodelivery-demo.mp4` : screencast réel sous-titré de 46 secondes, **sans audio**, ne montrant pas SQL Developer.
+- `demo/geodelivery-demo.mp4` : démonstration complète de **10 minutes**, toutes les interfaces, formulaires, calculs NN/2-opt et cinq arrêts livrés ; voix off française synthétique, sous-titres et 20 chapitres.
+- `demo/scenario-10min.json` et `demo/geodelivery-demo-complete.srt` : texte du commentaire et sous-titres éditables. La vidéo n’est pas un enregistrement de SQL Developer.
 - `docs/evidence/verification-summary.md` : synthèse des validations et limites.
 - `GeoDelivery-source.zip` : code, scripts et livrables **sans secrets**, dépendances ni caches.
 

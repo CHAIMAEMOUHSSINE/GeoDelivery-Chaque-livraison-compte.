@@ -1,0 +1,9 @@
+{
+  "pages": 45,
+  "figures": 30,
+  "chapters": 6,
+  "language": "fr",
+  "hasLinkedContents": true,
+  "screenshotsDirectory": "docs/screenshots/interfaces",
+  "output": "docs/rapport.pdf"
+}

@@ -1,0 +1,503 @@
+1
+00:00:00,000 --> 00:00:04,750
+Bienvenue dans cette démonstration de GeoDelivery. Cette application organise les livraisons à
+
+2
+00:00:04,750 --> 00:00:09,500
+Casablanca en associant Oracle Spatial, Spring Boot et Angular. Nous allons parcourir
+
+3
+00:00:09,500 --> 00:00:14,250
+toutes les interfaces, créer les ressources nécessaires et suivre une tournée jusqu’à
+
+4
+00:00:14,250 --> 00:00:19,000
+sa clôture. La connexion protège l’accès aux données. Les permissions sont contrôlées
+
+5
+00:00:19,000 --> 00:00:23,750
+côté serveur selon trois rôles : administrateur, dispatcher et livreur. Les informations
+
+6
+00:00:23,750 --> 00:00:28,500
+utilisées ici sont entièrement fictives.
+
+7
+00:00:30,000 --> 00:00:34,750
+Le tableau de bord présente une vue d’ensemble des opérations. Les cartes
+
+8
+00:00:34,750 --> 00:00:39,500
+indiquent le nombre de commandes, les livreurs disponibles, les tournées actives et
+
+9
+00:00:39,500 --> 00:00:44,250
+les kilomètres estimés économisés. La carte situe les ressources et les destinations.
+
+10
+00:00:44,250 --> 00:00:49,000
+La liste de flotte montre les disponibilités. Les dernières commandes facilitent le
+
+11
+00:00:49,000 --> 00:00:53,750
+suivi quotidien. Ces informations sont lues depuis Oracle : les compteurs changent
+
+12
+00:00:53,750 --> 00:00:58,500
+lorsque nous créons une commande ou exécutons une livraison.
+
+13
+00:01:00,000 --> 00:01:04,750
+L’interface clients centralise le nom, l’adresse, le téléphone et l’état d’activité. La
+
+14
+00:01:04,750 --> 00:01:09,500
+recherche filtre les éléments de la page chargée. Les actions permettent de
+
+15
+00:01:09,500 --> 00:01:14,250
+modifier un client ou de le désactiver. Une désactivation n’efface pas l’historique
+
+16
+00:01:14,250 --> 00:01:19,000
+; elle est refusée lorsqu’il reste des commandes actives. La position géographique
+
+17
+00:01:19,000 --> 00:01:23,750
+constitue une donnée métier essentielle, puisqu’elle devient la destination utilisée dans la
+
+18
+00:01:23,750 --> 00:01:28,500
+matrice de distances et dans les tournées.
+
+19
+00:01:30,000 --> 00:01:34,750
+Créons maintenant un client de démonstration. Le formulaire recueille les informations de
+
+20
+00:01:34,750 --> 00:01:39,500
+contact et une position au format WGS quatre-vingt-quatre. Les champs obligatoires et
+
+21
+00:01:39,500 --> 00:01:44,250
+les bornes géographiques sont vérifiés dans l’interface puis à nouveau par le
+
+22
+00:01:44,250 --> 00:01:49,000
+backend. L’API reçoit des champs nommés latitude et longitude. Oracle enregistre le
+
+23
+00:01:49,000 --> 00:01:53,750
+point avec la longitude en X et la latitude en Y. L’enregistrement
+
+24
+00:01:53,750 --> 00:01:58,500
+confirme que la donnée est persistée en base.
+
+25
+00:02:00,000 --> 00:02:04,750
+Passons aux livreurs. Chaque profil possède un nom, un téléphone, une disponibilité
+
+26
+00:02:04,750 --> 00:02:09,500
+et une position courante. Les états distinguent un livreur disponible, occupé par
+
+27
+00:02:09,500 --> 00:02:14,250
+une tournée ou hors ligne. Nous ajoutons ici un nouveau profil fictif.
+
+28
+00:02:14,250 --> 00:02:19,000
+La position pourra ensuite être actualisée pendant l’exécution. L’administration de ces profils
+
+29
+00:02:19,000 --> 00:02:23,750
+est réservée au rôle administrateur. Un utilisateur ayant le rôle livreur ne
+
+30
+00:02:23,750 --> 00:02:28,500
+peut consulter et modifier que les ressources qui lui appartiennent.
+
+31
+00:02:30,000 --> 00:02:34,750
+La page véhicules définit les moyens de transport. Nous créons un véhicule,
+
+32
+00:02:34,750 --> 00:02:39,500
+indiquons une capacité de cent cinquante kilogrammes et l’associons au livreur préparé
+
+33
+00:02:39,500 --> 00:02:44,250
+précédemment. L’immatriculation doit être unique et la capacité strictement positive. Cette limite
+
+34
+00:02:44,250 --> 00:02:49,000
+sera contrôlée lors du calcul et lors de la confirmation d’une tournée.
+
+35
+00:02:49,000 --> 00:02:53,750
+La somme des poids sélectionnés ne peut pas dépasser la capacité du
+
+36
+00:02:53,750 --> 00:02:58,500
+véhicule affecté. Un même livreur ne reçoit pas plusieurs véhicules simultanément.
+
+37
+00:03:00,000 --> 00:03:04,071
+La page dépôts gère les points de départ des tournées. Nous enregistrons
+
+38
+00:03:04,071 --> 00:03:08,143
+un hub de démonstration à Casablanca, avec une adresse fictive et ses
+
+39
+00:03:08,143 --> 00:03:12,214
+coordonnées. Le dépôt est le premier sommet du parcours. Il peut également
+
+40
+00:03:12,214 --> 00:03:16,286
+devenir le dernier sommet lorsque le retour est demandé. Au moment de
+
+41
+00:03:16,286 --> 00:03:20,357
+confirmer une tournée, ses coordonnées sont copiées dans le plan. Une modification
+
+42
+00:03:20,357 --> 00:03:24,429
+ultérieure du catalogue ne déplace donc pas le point de départ d’une
+
+43
+00:03:24,429 --> 00:03:28,500
+tournée historique.
+
+44
+00:03:30,000 --> 00:03:34,071
+L’interface commandes rassemble les demandes de livraison. Chaque ligne affiche la référence,
+
+45
+00:03:34,071 --> 00:03:38,143
+le client, le poids, la priorité et le statut. Le filtre permet
+
+46
+00:03:38,143 --> 00:03:42,214
+de distinguer les commandes en attente, affectées, en livraison, livrées ou annulées.
+
+47
+00:03:42,214 --> 00:03:46,286
+Une commande en attente reste modifiable et peut être annulée. Après affectation,
+
+48
+00:03:46,286 --> 00:03:50,357
+les changements de statut passent par les services de tournée et de
+
+49
+00:03:50,357 --> 00:03:54,429
+livraison. Cette règle évite de contourner les contrôles métier avec une simple
+
+50
+00:03:54,429 --> 00:03:58,500
+modification de ligne.
+
+51
+00:04:00,000 --> 00:04:04,071
+Créons une commande pour le client ajouté plus tôt. La référence identifie
+
+52
+00:04:04,071 --> 00:04:08,143
+la demande de manière unique. Nous renseignons un poids positif et une
+
+53
+00:04:08,143 --> 00:04:12,214
+priorité. Le client doit exister et être actif. Après validation, la commande
+
+54
+00:04:12,214 --> 00:04:16,286
+apparaît avec le statut en attente. Quatre autres commandes fictives complètent le
+
+55
+00:04:16,286 --> 00:04:20,357
+jeu de cette démonstration. Elles permettront de comparer les algorithmes sur plusieurs
+
+56
+00:04:20,357 --> 00:04:24,429
+destinations. La priorité est informative dans ce prototype : elle ne constitue
+
+57
+00:04:24,429 --> 00:04:28,500
+pas une fenêtre horaire.
+
+58
+00:04:30,000 --> 00:04:34,750
+La carte rassemble les points géographiques du système. Des symboles différents représentent
+
+59
+00:04:34,750 --> 00:04:39,500
+les dépôts, les livreurs et les clients. Les fenêtres d’information décrivent les
+
+60
+00:04:39,500 --> 00:04:44,250
+éléments sélectionnés. Leaflet utilise les couples latitude, longitude, alors qu’Oracle stocke X
+
+61
+00:04:44,250 --> 00:04:49,000
+puis Y. Cette conversion explicite évite d’inverser les coordonnées. L’affichage reflète les
+
+62
+00:04:49,000 --> 00:04:53,750
+positions enregistrées ; il ne s’agit pas d’un suivi automatique en temps
+
+63
+00:04:53,750 --> 00:04:58,500
+réel. Le fond cartographique provient d’OpenStreetMap avec son attribution.
+
+64
+00:05:00,000 --> 00:05:04,750
+Choisissons une position client et recherchons les cinq livreurs disponibles les plus
+
+65
+00:05:04,750 --> 00:05:09,500
+proches. Oracle Spatial exécute l’opérateur de voisinage et renvoie les distances associées.
+
+66
+00:05:09,500 --> 00:05:14,250
+Les résultats sont triés en kilomètres. Le filtrage de disponibilité intervient dans
+
+67
+00:05:14,250 --> 00:05:19,000
+la stratégie de recherche ; il ne consiste pas à prendre cinq
+
+68
+00:05:19,000 --> 00:05:23,750
+voisins puis à retirer les indisponibles. Cette fonctionnalité aide le dispatcher à
+
+69
+00:05:23,750 --> 00:05:28,500
+identifier les ressources proches avant de préparer une affectation ou une tournée.
+
+70
+00:05:30,000 --> 00:05:34,071
+La recherche par rayon répond à une question différente : quels livreurs
+
+71
+00:05:34,071 --> 00:05:38,143
+disponibles se trouvent à moins de cinq kilomètres du client ? L’opérateur
+
+72
+00:05:38,143 --> 00:05:42,214
+spatial filtre les positions grâce à l’index. La liste peut contenir plus
+
+73
+00:05:42,214 --> 00:05:46,286
+ou moins de cinq personnes : contrairement à la recherche de voisins,
+
+74
+00:05:46,286 --> 00:05:50,357
+c’est le rayon qui fixe la condition. Les distances restent géodésiques. Un
+
+75
+00:05:50,357 --> 00:05:54,429
+véhicule proche à vol d’oiseau peut devoir parcourir davantage de kilomètres sur
+
+76
+00:05:54,429 --> 00:05:58,500
+le réseau routier.
+
+77
+00:06:00,000 --> 00:06:04,750
+L’interface tournées conserve les plans enregistrés. Nous retrouvons le livreur, le dépôt,
+
+78
+00:06:04,750 --> 00:06:09,500
+la distance estimée et l’état d’exécution. Le détail restitue les arrêts dans
+
+79
+00:06:09,500 --> 00:06:14,250
+leur ordre de passage. Une tournée planifiée peut être démarrée ou annulée
+
+80
+00:06:14,250 --> 00:06:19,000
+avant son exécution. Les coordonnées des arrêts sont figées lors de la
+
+81
+00:06:19,000 --> 00:06:23,750
+confirmation afin de conserver un parcours historique cohérent. Dans cette version, une
+
+82
+00:06:23,750 --> 00:06:28,500
+commande ne peut appartenir qu’à une seule tournée, même historique.
+
+83
+00:06:30,000 --> 00:06:34,750
+Préparons maintenant notre tournée. Nous choisissons le dépôt et le livreur créés
+
+84
+00:06:34,750 --> 00:06:39,500
+pendant la démonstration, puis les cinq commandes fictives. Le poids sélectionné est
+
+85
+00:06:39,500 --> 00:06:44,250
+affiché avant tout calcul. L’option de retour au dépôt ferme le parcours.
+
+86
+00:06:44,250 --> 00:06:49,000
+Le backend vérifie l’existence des ressources, la disponibilité du livreur, le statut
+
+87
+00:06:49,000 --> 00:06:53,750
+des commandes et la capacité du véhicule. Une sélection peut contenir au
+
+88
+00:06:53,750 --> 00:06:58,500
+maximum soixante arrêts pour maîtriser le coût du calcul.
+
+89
+00:07:00,000 --> 00:07:04,071
+Commençons avec Nearest Neighbor seul. Le service lit les coordonnées et construit
+
+90
+00:07:04,071 --> 00:07:08,143
+une matrice symétrique de distances géodésiques dans Oracle. Depuis le dépôt, l’algorithme
+
+91
+00:07:08,143 --> 00:07:12,214
+choisit à chaque étape la destination non visitée la plus proche. Il
+
+92
+00:07:12,214 --> 00:07:16,286
+produit rapidement un premier ordre de passage. La carte affiche cet ordre
+
+93
+00:07:16,286 --> 00:07:20,357
+avec des segments droits. Ce résultat constitue une heuristique, et non une
+
+94
+00:07:20,357 --> 00:07:24,429
+preuve de la meilleure solution possible. À ce stade, aucune affectation n’est
+
+95
+00:07:24,429 --> 00:07:28,500
+enregistrée.
+
+96
+00:07:30,000 --> 00:07:34,071
+Activons maintenant l’amélioration deux opt sur les mêmes commandes. L’algorithme teste des
+
+97
+00:07:34,071 --> 00:07:38,143
+inversions de segments et conserve celles qui réduisent la distance totale. Le
+
+98
+00:07:38,143 --> 00:07:42,214
+dépôt initial reste fixe, ainsi que le dépôt final lorsque le retour
+
+99
+00:07:42,214 --> 00:07:46,286
+est activé. Les indicateurs comparent le premier parcours et le parcours amélioré.
+
+100
+00:07:46,286 --> 00:07:50,357
+Un gain nul peut être normal si aucune amélioration n’est trouvée. Le
+
+101
+00:07:50,357 --> 00:07:54,429
+mode géodésique est annoncé explicitement : aucun plus court trajet routier n’est
+
+102
+00:07:54,429 --> 00:07:58,500
+revendiqué.
+
+103
+00:08:00,000 --> 00:08:04,750
+Après lecture de l’aperçu, confirmons la tournée. Cette action est différente du
+
+104
+00:08:04,750 --> 00:08:09,500
+calcul précédent : elle engage les ressources. Le serveur verrouille les éléments
+
+105
+00:08:09,500 --> 00:08:14,250
+concernés, revalide les contraintes et recalcule le plan. Il enregistre la tournée,
+
+106
+00:08:14,250 --> 00:08:19,000
+ses arrêts et les livraisons dans une transaction unique. Les commandes deviennent
+
+107
+00:08:19,000 --> 00:08:23,750
+affectées et le livreur occupé. Une autre demande concurrente ne peut pas
+
+108
+00:08:23,750 --> 00:08:28,500
+affecter les mêmes commandes à un second plan actif.
+
+109
+00:08:30,000 --> 00:08:34,750
+Démarrons la tournée planifiée. Les commandes passent en livraison et les arrêts
+
+110
+00:08:34,750 --> 00:08:39,500
+deviennent exécutables. Le formulaire GPS permet d’enregistrer la nouvelle position du livreur.
+
+111
+00:08:39,500 --> 00:08:44,250
+Cette mise à jour est persistée dans Oracle, mais elle ne modifie
+
+112
+00:08:44,250 --> 00:08:49,000
+pas les coordonnées figées du plan. Le contrôle de propriété protège cette
+
+113
+00:08:49,000 --> 00:08:53,750
+action pour un compte livreur. L’exécution reste manuelle dans ce prototype :
+
+114
+00:08:53,750 --> 00:08:58,500
+aucun capteur ni flux automatique de localisation n’est simulé.
+
+115
+00:09:00,000 --> 00:09:04,750
+La page livraisons présente le suivi des commandes par tournée. Nous marquons
+
+116
+00:09:04,750 --> 00:09:09,500
+les arrêts de notre parcours comme livrés. Les états sont synchronisés entre
+
+117
+00:09:09,500 --> 00:09:14,250
+la livraison, la commande et la tournée. Après le dernier arrêt réussi,
+
+118
+00:09:14,250 --> 00:09:19,000
+la tournée est terminée automatiquement et le livreur redevient disponible. Un échec
+
+119
+00:09:19,000 --> 00:09:23,750
+n’est pas traité comme une réussite : il bloque la clôture dans
+
+120
+00:09:23,750 --> 00:09:28,500
+cette version. La reprise des échecs nécessite un workflow complémentaire.
+
+121
+00:09:30,000 --> 00:09:34,750
+Nous avons parcouru la connexion, le tableau de bord, les clients, les
+
+122
+00:09:34,750 --> 00:09:39,500
+livreurs, les véhicules, les dépôts, les commandes, la carte, les tournées et
+
+123
+00:09:39,500 --> 00:09:44,250
+les livraisons. Le scénario complet va de la création des ressources à
+
+124
+00:09:44,250 --> 00:09:49,000
+la clôture d’une tournée optimisée. Oracle Spatial fournit les positions, les index
+
+125
+00:09:49,000 --> 00:09:53,750
+et les mesures. Les prochaines évolutions concernent le routage routier, la reprise
+
+126
+00:09:53,750 --> 00:09:58,500
+des échecs et la planification multi-véhicules. Merci de votre attention.

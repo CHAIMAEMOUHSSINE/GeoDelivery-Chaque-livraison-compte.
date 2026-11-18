@@ -1,0 +1,175 @@
+{
+  "executedAt": "2026-11-18T14:50:16.913Z",
+  "mode": "repetition",
+  "targetSeconds": 600,
+  "recordedSeconds": 20.326,
+  "video": null,
+  "routeId": 22,
+  "sceneTimings": [
+    {
+      "id": "login",
+      "startSeconds": 0,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.11514830000000006
+    },
+    {
+      "id": "dashboard",
+      "startSeconds": 30,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.7500493000000001
+    },
+    {
+      "id": "clients",
+      "startSeconds": 60,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.3987264000000005
+    },
+    {
+      "id": "client-form",
+      "startSeconds": 90,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.5318782000000001
+    },
+    {
+      "id": "drivers",
+      "startSeconds": 120,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.6275549000000001
+    },
+    {
+      "id": "vehicles",
+      "startSeconds": 150,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.7060739000000004
+    },
+    {
+      "id": "depots",
+      "startSeconds": 180,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.6518283000000001
+    },
+    {
+      "id": "orders",
+      "startSeconds": 210,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.5484236999999994
+    },
+    {
+      "id": "order-form",
+      "startSeconds": 240,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.814759900000001
+    },
+    {
+      "id": "map",
+      "startSeconds": 270,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.4890877
+    },
+    {
+      "id": "nearest",
+      "startSeconds": 300,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.4651473999999998
+    },
+    {
+      "id": "radius",
+      "startSeconds": 330,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.33326639999999863
+    },
+    {
+      "id": "routes",
+      "startSeconds": 360,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.18910139999999956
+    },
+    {
+      "id": "planner",
+      "startSeconds": 390,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.5318323999999993
+    },
+    {
+      "id": "nn",
+      "startSeconds": 420,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.3350088999999989
+    },
+    {
+      "id": "two-opt",
+      "startSeconds": 450,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.520255799999999
+    },
+    {
+      "id": "confirmation",
+      "startSeconds": 480,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.2851258999999991
+    },
+    {
+      "id": "execution",
+      "startSeconds": 510,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.48002219999999945
+    },
+    {
+      "id": "deliveries",
+      "startSeconds": 540,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 1.1097605999999978
+    },
+    {
+      "id": "conclusion",
+      "startSeconds": 570,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.3467515000000021
+    }
+  ],
+  "captures": [
+    "01-connexion",
+    "02-tableau-de-bord",
+    "03-clients",
+    "04-formulaire-client",
+    "05-livreurs",
+    "06-formulaire-livreur",
+    "07-vehicules",
+    "08-formulaire-vehicule",
+    "09-depots",
+    "10-formulaire-depot",
+    "11-commandes",
+    "12-commandes-filtrees",
+    "13-formulaire-commande",
+    "14-carte-generale",
+    "15-plus-proches-voisins",
+    "16-recherche-par-rayon",
+    "17-historique-tournees",
+    "18-planification",
+    "19-resultat-nearest-neighbor",
+    "20-resultat-deux-opt",
+    "21-metriques-optimisation",
+    "22-detail-tournee-planifiee",
+    "23-tournee-en-cours",
+    "24-position-gps",
+    "25-livraisons",
+    "26-tournee-terminee",
+    "27-tableau-de-bord-final"
+  ],
+  "javascriptErrors": [],
+  "apiErrors": [],
+  "interfaceCoverage": [
+    "login",
+    "dashboard",
+    "clients",
+    "drivers",
+    "vehicles",
+    "depots",
+    "orders",
+    "map",
+    "routes/optimize",
+    "routes",
+    "routes/:id",
+    "deliveries"
+  ]
+}

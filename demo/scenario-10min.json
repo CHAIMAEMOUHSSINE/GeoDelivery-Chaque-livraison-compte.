@@ -1,0 +1,82 @@
+[
+  {
+    "id":"login","title":"01 · Présentation et connexion","subtitle":"GeoDelivery · Oracle Spatial · Démonstration sur des données fictives",
+    "narration":"Bienvenue dans cette démonstration de GeoDelivery. Cette application organise les livraisons à Casablanca en associant Oracle Spatial, Spring Boot et Angular. Nous allons parcourir toutes les interfaces, créer les ressources nécessaires et suivre une tournée jusqu’à sa clôture. La connexion protège l’accès aux données. Les permissions sont contrôlées côté serveur selon trois rôles : administrateur, dispatcher et livreur. Les informations utilisées ici sont entièrement fictives."
+  },
+  {
+    "id":"dashboard","title":"02 · Tableau de bord","subtitle":"Indicateurs calculés en base · flotte · dernières commandes",
+    "narration":"Le tableau de bord présente une vue d’ensemble des opérations. Les cartes indiquent le nombre de commandes, les livreurs disponibles, les tournées actives et les kilomètres estimés économisés. La carte situe les ressources et les destinations. La liste de flotte montre les disponibilités. Les dernières commandes facilitent le suivi quotidien. Ces informations sont lues depuis Oracle : les compteurs changent lorsque nous créons une commande ou exécutons une livraison."
+  },
+  {
+    "id":"clients","title":"03 · Gestion des clients","subtitle":"Recherche · coordonnées de livraison · désactivation contrôlée",
+    "narration":"L’interface clients centralise le nom, l’adresse, le téléphone et l’état d’activité. La recherche filtre les éléments de la page chargée. Les actions permettent de modifier un client ou de le désactiver. Une désactivation n’efface pas l’historique ; elle est refusée lorsqu’il reste des commandes actives. La position géographique constitue une donnée métier essentielle, puisqu’elle devient la destination utilisée dans la matrice de distances et dans les tournées."
+  },
+  {
+    "id":"client-form","title":"04 · Création d’un client","subtitle":"Latitude entre −90 et 90 · longitude entre −180 et 180",
+    "narration":"Créons maintenant un client de démonstration. Le formulaire recueille les informations de contact et une position au format WGS quatre-vingt-quatre. Les champs obligatoires et les bornes géographiques sont vérifiés dans l’interface puis à nouveau par le backend. L’API reçoit des champs nommés latitude et longitude. Oracle enregistre le point avec la longitude en X et la latitude en Y. L’enregistrement confirme que la donnée est persistée en base."
+  },
+  {
+    "id":"drivers","title":"05 · Gestion des livreurs","subtitle":"Disponibilité et position courante · administration des ressources",
+    "narration":"Passons aux livreurs. Chaque profil possède un nom, un téléphone, une disponibilité et une position courante. Les états distinguent un livreur disponible, occupé par une tournée ou hors ligne. Nous ajoutons ici un nouveau profil fictif. La position pourra ensuite être actualisée pendant l’exécution. L’administration de ces profils est réservée au rôle administrateur. Un utilisateur ayant le rôle livreur ne peut consulter et modifier que les ressources qui lui appartiennent."
+  },
+  {
+    "id":"vehicles","title":"06 · Véhicules et capacité","subtitle":"Immatriculation unique · capacité positive · affectation au livreur",
+    "narration":"La page véhicules définit les moyens de transport. Nous créons un véhicule, indiquons une capacité de cent cinquante kilogrammes et l’associons au livreur préparé précédemment. L’immatriculation doit être unique et la capacité strictement positive. Cette limite sera contrôlée lors du calcul et lors de la confirmation d’une tournée. La somme des poids sélectionnés ne peut pas dépasser la capacité du véhicule affecté. Un même livreur ne reçoit pas plusieurs véhicules simultanément."
+  },
+  {
+    "id":"depots","title":"07 · Dépôts de départ","subtitle":"Adresse du hub et point géographique de départ",
+    "narration":"La page dépôts gère les points de départ des tournées. Nous enregistrons un hub de démonstration à Casablanca, avec une adresse fictive et ses coordonnées. Le dépôt est le premier sommet du parcours. Il peut également devenir le dernier sommet lorsque le retour est demandé. Au moment de confirmer une tournée, ses coordonnées sont copiées dans le plan. Une modification ultérieure du catalogue ne déplace donc pas le point de départ d’une tournée historique."
+  },
+  {
+    "id":"orders","title":"08 · Suivi des commandes","subtitle":"Référence · client · poids · priorité · statut",
+    "narration":"L’interface commandes rassemble les demandes de livraison. Chaque ligne affiche la référence, le client, le poids, la priorité et le statut. Le filtre permet de distinguer les commandes en attente, affectées, en livraison, livrées ou annulées. Une commande en attente reste modifiable et peut être annulée. Après affectation, les changements de statut passent par les services de tournée et de livraison. Cette règle évite de contourner les contrôles métier avec une simple modification de ligne."
+  },
+  {
+    "id":"order-form","title":"09 · Création d’une commande","subtitle":"Client actif · poids strictement positif · priorité contrôlée",
+    "narration":"Créons une commande pour le client ajouté plus tôt. La référence identifie la demande de manière unique. Nous renseignons un poids positif et une priorité. Le client doit exister et être actif. Après validation, la commande apparaît avec le statut en attente. Quatre autres commandes fictives complètent le jeu de cette démonstration. Elles permettront de comparer les algorithmes sur plusieurs destinations. La priorité est informative dans ce prototype : elle ne constitue pas une fenêtre horaire."
+  },
+  {
+    "id":"map","title":"10 · Carte des opérations","subtitle":"Dépôts, livreurs et clients · positions enregistrées dans Oracle",
+    "narration":"La carte rassemble les points géographiques du système. Des symboles différents représentent les dépôts, les livreurs et les clients. Les fenêtres d’information décrivent les éléments sélectionnés. Leaflet utilise les couples latitude, longitude, alors qu’Oracle stocke X puis Y. Cette conversion explicite évite d’inverser les coordonnées. L’affichage reflète les positions enregistrées ; il ne s’agit pas d’un suivi automatique en temps réel. Le fond cartographique provient d’OpenStreetMap avec son attribution."
+  },
+  {
+    "id":"nearest","title":"11 · Livreurs les plus proches","subtitle":"SDO_NN + SDO_NN_DISTANCE · disponibles et triés par distance",
+    "narration":"Choisissons une position client et recherchons les cinq livreurs disponibles les plus proches. Oracle Spatial exécute l’opérateur de voisinage et renvoie les distances associées. Les résultats sont triés en kilomètres. Le filtrage de disponibilité intervient dans la stratégie de recherche ; il ne consiste pas à prendre cinq voisins puis à retirer les indisponibles. Cette fonctionnalité aide le dispatcher à identifier les ressources proches avant de préparer une affectation ou une tournée."
+  },
+  {
+    "id":"radius","title":"12 · Recherche dans un rayon","subtitle":"SDO_WITHIN_DISTANCE · rayon géodésique de 5 km",
+    "narration":"La recherche par rayon répond à une question différente : quels livreurs disponibles se trouvent à moins de cinq kilomètres du client ? L’opérateur spatial filtre les positions grâce à l’index. La liste peut contenir plus ou moins de cinq personnes : contrairement à la recherche de voisins, c’est le rayon qui fixe la condition. Les distances restent géodésiques. Un véhicule proche à vol d’oiseau peut devoir parcourir davantage de kilomètres sur le réseau routier."
+  },
+  {
+    "id":"routes","title":"13 · Historique des tournées","subtitle":"Planifiées · en cours · terminées · annulées",
+    "narration":"L’interface tournées conserve les plans enregistrés. Nous retrouvons le livreur, le dépôt, la distance estimée et l’état d’exécution. Le détail restitue les arrêts dans leur ordre de passage. Une tournée planifiée peut être démarrée ou annulée avant son exécution. Les coordonnées des arrêts sont figées lors de la confirmation afin de conserver un parcours historique cohérent. Dans cette version, une commande ne peut appartenir qu’à une seule tournée, même historique."
+  },
+  {
+    "id":"planner","title":"14 · Configuration de la tournée","subtitle":"Un dépôt · un livreur · cinq commandes · retour facultatif",
+    "narration":"Préparons maintenant notre tournée. Nous choisissons le dépôt et le livreur créés pendant la démonstration, puis les cinq commandes fictives. Le poids sélectionné est affiché avant tout calcul. L’option de retour au dépôt ferme le parcours. Le backend vérifie l’existence des ressources, la disponibilité du livreur, le statut des commandes et la capacité du véhicule. Une sélection peut contenir au maximum soixante arrêts pour maîtriser le coût du calcul."
+  },
+  {
+    "id":"nn","title":"15 · Premier calcul : Nearest Neighbor","subtitle":"Matrice Oracle en kilomètres · choix successif du voisin le plus proche",
+    "narration":"Commençons avec Nearest Neighbor seul. Le service lit les coordonnées et construit une matrice symétrique de distances géodésiques dans Oracle. Depuis le dépôt, l’algorithme choisit à chaque étape la destination non visitée la plus proche. Il produit rapidement un premier ordre de passage. La carte affiche cet ordre avec des segments droits. Ce résultat constitue une heuristique, et non une preuve de la meilleure solution possible. À ce stade, aucune affectation n’est enregistrée."
+  },
+  {
+    "id":"two-opt","title":"16 · Amélioration avec 2-opt","subtitle":"Inversions de segments · même matrice, mêmes contraintes",
+    "narration":"Activons maintenant l’amélioration deux opt sur les mêmes commandes. L’algorithme teste des inversions de segments et conserve celles qui réduisent la distance totale. Le dépôt initial reste fixe, ainsi que le dépôt final lorsque le retour est activé. Les indicateurs comparent le premier parcours et le parcours amélioré. Un gain nul peut être normal si aucune amélioration n’est trouvée. Le mode géodésique est annoncé explicitement : aucun plus court trajet routier n’est revendiqué."
+  },
+  {
+    "id":"confirmation","title":"17 · Confirmation transactionnelle","subtitle":"Création de la tournée, des arrêts et des livraisons",
+    "narration":"Après lecture de l’aperçu, confirmons la tournée. Cette action est différente du calcul précédent : elle engage les ressources. Le serveur verrouille les éléments concernés, revalide les contraintes et recalcule le plan. Il enregistre la tournée, ses arrêts et les livraisons dans une transaction unique. Les commandes deviennent affectées et le livreur occupé. Une autre demande concurrente ne peut pas affecter les mêmes commandes à un second plan actif."
+  },
+  {
+    "id":"execution","title":"18 · Démarrage et position GPS","subtitle":"Transition en cours · commandes en livraison · GPS persistant",
+    "narration":"Démarrons la tournée planifiée. Les commandes passent en livraison et les arrêts deviennent exécutables. Le formulaire GPS permet d’enregistrer la nouvelle position du livreur. Cette mise à jour est persistée dans Oracle, mais elle ne modifie pas les coordonnées figées du plan. Le contrôle de propriété protège cette action pour un compte livreur. L’exécution reste manuelle dans ce prototype : aucun capteur ni flux automatique de localisation n’est simulé."
+  },
+  {
+    "id":"deliveries","title":"19 · Livraison des arrêts et clôture","subtitle":"Statuts synchronisés · fin automatique après le dernier arrêt",
+    "narration":"La page livraisons présente le suivi des commandes par tournée. Nous marquons les arrêts de notre parcours comme livrés. Les états sont synchronisés entre la livraison, la commande et la tournée. Après le dernier arrêt réussi, la tournée est terminée automatiquement et le livreur redevient disponible. Un échec n’est pas traité comme une réussite : il bloque la clôture dans cette version. La reprise des échecs nécessite un workflow complémentaire."
+  },
+  {
+    "id":"conclusion","title":"20 · Bilan de la démonstration","subtitle":"Toutes les interfaces parcourues · limites et perspectives",
+    "narration":"Nous avons parcouru la connexion, le tableau de bord, les clients, les livreurs, les véhicules, les dépôts, les commandes, la carte, les tournées et les livraisons. Le scénario complet va de la création des ressources à la clôture d’une tournée optimisée. Oracle Spatial fournit les positions, les index et les mesures. Les prochaines évolutions concernent le routage routier, la reprise des échecs et la planification multi-véhicules. Merci de votre attention."
+  }
+]

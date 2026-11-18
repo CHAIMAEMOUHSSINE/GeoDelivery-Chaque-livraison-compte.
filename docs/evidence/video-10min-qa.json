@@ -1,0 +1,12 @@
+{
+  "durationSeconds": 600.0,
+  "chapters": 20,
+  "audio": true,
+  "subtitles": true,
+  "sampledFrames": 20,
+  "audioVolumeCheck": [
+    "[Parsed_volumedetect_0 @ 0000016d9952cd40] mean_volume: -16.8 dB",
+    "[Parsed_volumedetect_0 @ 0000016d9952cd40] max_volume: -1.2 dB"
+  ],
+  "resolution": 1600
+}

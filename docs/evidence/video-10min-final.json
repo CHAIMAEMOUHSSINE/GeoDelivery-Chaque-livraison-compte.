@@ -1,0 +1,26 @@
+{
+  "file": "demo/geodelivery-demo.mp4",
+  "durationSeconds": 600.0,
+  "sizeBytes": 23612627,
+  "chapters": 20,
+  "language": "fr-FR",
+  "syntheticNarration": true,
+  "subtitleTrack": true,
+  "realApplicationRecording": true,
+  "allInterfaces": [
+    "login",
+    "dashboard",
+    "clients",
+    "drivers",
+    "vehicles",
+    "depots",
+    "orders",
+    "map",
+    "routes/optimize",
+    "routes",
+    "routes/:id",
+    "deliveries"
+  ],
+  "javascriptErrors": [],
+  "apiErrors": []
+}

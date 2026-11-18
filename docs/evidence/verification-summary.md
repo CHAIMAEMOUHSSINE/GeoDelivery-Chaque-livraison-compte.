@@ -15,8 +15,11 @@
 - `npm audit --omit=dev --audit-level=high` : **0 vulnérabilité signalée** au moment du contrôle.
 - Audit complet incluant les outils de développement : **27 alertes transitives (13 hautes, 14 modérées)**, notamment picomatch/glob/minimatch. Elles concernent CLI/build, pas le bundle applicatif. Aucun `audit fix --force` ni rétrogradage Angular n’a été appliqué ; suivre les correctifs amont et conserver le serveur de développement en local.
 - Nouveau parcours navigateur après mise à jour, sans erreur JavaScript : `video.json`.
-- Rapport de 12 pages et PPTX de 12 diapositives générés, validés et rendus pour contrôle visuel. Présentation exportée en PDF par PowerPoint.
-- Screencast réel, sans audio, sous-titré : `demo/geodelivery-demo.mp4`, 46,44 secondes.
+- Rapport professionnel enrichi : **45 pages, six chapitres, 30 figures**, sommaire lié et captures expliquées de chaque interface. Première version technique archivée localement.
+- PPTX de 12 diapositives généré, validé et exporté en PDF par PowerPoint.
+- Scénario complet : **20 séquences de 30 secondes**, douze routes d’interface et leurs formulaires, cinq arrêts livrés, tournée terminée ; aucune erreur JavaScript ou HTTP API durant l’enregistrement.
+- Vidéo finale de **10 minutes**, narration française synthétique, sous-titres et chapitres ; preuve finale dans `video-10min-final.json`. Première vidéo courte archivée localement.
+- Contrôle des livrables enrichis : 45 pages sans bloc de texte hors page, 61 signets et 189 liens PDF ; vidéo de 600 secondes avec pistes vidéo/audio/sous-titres, 20 chapitres, contrôle sonore non silencieux et une image vérifiée par séquence.
 
 ## Mesures, pas promesses
 

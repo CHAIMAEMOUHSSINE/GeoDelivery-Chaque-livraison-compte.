@@ -1,3 +1,4 @@
-La demonstration locale, si generee, se trouve dans demo/geodelivery-demo.mp4.
+La demonstration complete locale de 10 minutes se trouve dans demo/geodelivery-demo.mp4.
+Toutes les interfaces, narration francaise synthetique, sous-titres et chapitres.
 Ajouter ici le lien de partage de la video finale commentee et verifier les permissions.
 Aucun lien n'est publie automatiquement.

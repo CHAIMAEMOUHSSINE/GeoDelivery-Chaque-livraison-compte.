@@ -1,0 +1,148 @@
+{
+  "voice": "fr-FR-DeniseNeural",
+  "synthetic": true,
+  "language": "fr-FR",
+  "durationSeconds": 600.0,
+  "scenes": [
+    {
+      "scene": 1,
+      "id": "login",
+      "rawSpeechSeconds": 30.768,
+      "speedFactor": 1.0910638297872342,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 2,
+      "id": "dashboard",
+      "rawSpeechSeconds": 28.152,
+      "speedFactor": 1.0,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 3,
+      "id": "clients",
+      "rawSpeechSeconds": 27.504,
+      "speedFactor": 1.0,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 4,
+      "id": "client-form",
+      "rawSpeechSeconds": 27.36,
+      "speedFactor": 1.0,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 5,
+      "id": "drivers",
+      "rawSpeechSeconds": 31.08,
+      "speedFactor": 1.102127659574468,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 6,
+      "id": "vehicles",
+      "rawSpeechSeconds": 29.088,
+      "speedFactor": 1.0314893617021277,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 7,
+      "id": "depots",
+      "rawSpeechSeconds": 27.24,
+      "speedFactor": 1.0,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 8,
+      "id": "orders",
+      "rawSpeechSeconds": 30.936,
+      "speedFactor": 1.0970212765957448,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 9,
+      "id": "order-form",
+      "rawSpeechSeconds": 31.968,
+      "speedFactor": 1.1336170212765957,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 10,
+      "id": "map",
+      "rawSpeechSeconds": 31.896,
+      "speedFactor": 1.1310638297872342,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 11,
+      "id": "nearest",
+      "rawSpeechSeconds": 28.608,
+      "speedFactor": 1.014468085106383,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 12,
+      "id": "radius",
+      "rawSpeechSeconds": 27.12,
+      "speedFactor": 1.0,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 13,
+      "id": "routes",
+      "rawSpeechSeconds": 29.136,
+      "speedFactor": 1.033191489361702,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 14,
+      "id": "planner",
+      "rawSpeechSeconds": 28.224,
+      "speedFactor": 1.0008510638297872,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 15,
+      "id": "nn",
+      "rawSpeechSeconds": 30.384,
+      "speedFactor": 1.0774468085106383,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 16,
+      "id": "two-opt",
+      "rawSpeechSeconds": 29.688,
+      "speedFactor": 1.0527659574468085,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 17,
+      "id": "confirmation",
+      "rawSpeechSeconds": 27.672,
+      "speedFactor": 1.0,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 18,
+      "id": "execution",
+      "rawSpeechSeconds": 28.08,
+      "speedFactor": 1.0,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 19,
+      "id": "deliveries",
+      "rawSpeechSeconds": 27.648,
+      "speedFactor": 1.0,
+      "segmentSeconds": 30
+    },
+    {
+      "scene": 20,
+      "id": "conclusion",
+      "rawSpeechSeconds": 29.136,
+      "speedFactor": 1.033191489361702,
+      "segmentSeconds": 30
+    }
+  ]
+}

@@ -4,7 +4,7 @@ from zipfile import ZipFile,ZIP_DEFLATED
 
 root=Path(__file__).resolve().parents[1]
 output=root/"GeoDelivery-source.zip"
-skip_dirs={"node_modules","target","dist",".angular",".git",".idea",".vscode","__pycache__","recordings","qa"}
+skip_dirs={"node_modules","target","dist",".angular",".git",".idea",".vscode","__pycache__","recordings","narration","archive","qa"}
 skip_extensions={".log",".pyc"}
 stack=[root]
 files=[]

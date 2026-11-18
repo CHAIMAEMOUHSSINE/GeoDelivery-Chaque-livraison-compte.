@@ -1,0 +1,2 @@
+# Facultatif, pour regenerer la voix off francaise (connexion Internet requise).
+edge-tts>=7.3,<8

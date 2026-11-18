@@ -1,0 +1,175 @@
+{
+  "executedAt": "2026-11-18T15:01:46.099Z",
+  "mode": "10-minutes",
+  "targetSeconds": 600,
+  "recordedSeconds": 607.622,
+  "video": "C:\\Users\\Chaimae\\Desktop\\S5\\Administartion system oracle\\GeoDelivery\\demo\\recordings\\complete\\page@ed92a4039fbc59033978ff42ae5a08ae.webm",
+  "routeId": 23,
+  "sceneTimings": [
+    {
+      "id": "login",
+      "startSeconds": 0,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.1278844999999999
+    },
+    {
+      "id": "dashboard",
+      "startSeconds": 30,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.8429463999999971
+    },
+    {
+      "id": "clients",
+      "startSeconds": 60,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.5439993000000032
+    },
+    {
+      "id": "client-form",
+      "startSeconds": 90,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 23.734272100000002
+    },
+    {
+      "id": "drivers",
+      "startSeconds": 120,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 22.922297600000004
+    },
+    {
+      "id": "vehicles",
+      "startSeconds": 150,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 22.891447600000014
+    },
+    {
+      "id": "depots",
+      "startSeconds": 180,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 22.7031599
+    },
+    {
+      "id": "orders",
+      "startSeconds": 210,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 10.706953299999993
+    },
+    {
+      "id": "order-form",
+      "startSeconds": 240,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 21.838796700000007
+    },
+    {
+      "id": "map",
+      "startSeconds": 270,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.6064765999999945
+    },
+    {
+      "id": "nearest",
+      "startSeconds": 300,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 5.577901200000022
+    },
+    {
+      "id": "radius",
+      "startSeconds": 330,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 5.440717699999979
+    },
+    {
+      "id": "routes",
+      "startSeconds": 360,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.43539039999997475
+    },
+    {
+      "id": "planner",
+      "startSeconds": 390,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 6.170855799999961
+    },
+    {
+      "id": "nn",
+      "startSeconds": 420,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 5.521149199999985
+    },
+    {
+      "id": "two-opt",
+      "startSeconds": 450,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 16.775337499999964
+    },
+    {
+      "id": "confirmation",
+      "startSeconds": 480,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 6.587669699999969
+    },
+    {
+      "id": "execution",
+      "startSeconds": 510,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 21.72321969999996
+    },
+    {
+      "id": "deliveries",
+      "startSeconds": 540,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 18.972142699999967
+    },
+    {
+      "id": "conclusion",
+      "startSeconds": 570,
+      "plannedDurationSeconds": 30,
+      "actionSeconds": 0.6128887999999569
+    }
+  ],
+  "captures": [
+    "01-connexion",
+    "02-tableau-de-bord",
+    "03-clients",
+    "04-formulaire-client",
+    "05-livreurs",
+    "06-formulaire-livreur",
+    "07-vehicules",
+    "08-formulaire-vehicule",
+    "09-depots",
+    "10-formulaire-depot",
+    "11-commandes",
+    "12-commandes-filtrees",
+    "13-formulaire-commande",
+    "14-carte-generale",
+    "15-plus-proches-voisins",
+    "16-recherche-par-rayon",
+    "17-historique-tournees",
+    "18-planification",
+    "19-resultat-nearest-neighbor",
+    "20-resultat-deux-opt",
+    "21-metriques-optimisation",
+    "22-detail-tournee-planifiee",
+    "23-tournee-en-cours",
+    "24-position-gps",
+    "25-livraisons",
+    "26-tournee-terminee",
+    "27-tableau-de-bord-final"
+  ],
+  "javascriptErrors": [],
+  "apiErrors": [],
+  "interfaceCoverage": [
+    "login",
+    "dashboard",
+    "clients",
+    "drivers",
+    "vehicles",
+    "depots",
+    "orders",
+    "map",
+    "routes/optimize",
+    "routes",
+    "routes/:id",
+    "deliveries"
+  ]
+}
