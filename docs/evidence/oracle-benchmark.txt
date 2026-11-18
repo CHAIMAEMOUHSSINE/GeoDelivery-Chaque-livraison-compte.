@@ -1,0 +1,79 @@
+﻿
+Table created.
+
+
+20000 rows created.
+
+
+1 row created.
+
+
+Commit complete.
+
+
+Index created.
+
+
+PL/SQL procedure successfully completed.
+
+BENCH,1,421,0,25590
+BENCH,2,421,0,23550
+BENCH,3,421,0,42200
+BENCH,4,421,20,34970
+BENCH,5,421,10,24100
+BENCH,6,421,0,27840
+BENCH,7,421,20,31070
+BENCH,8,421,20,30980
+BENCH,9,421,20,22360
+BENCH,10,421,0,21690
+
+PL/SQL procedure successfully completed.
+
+
+Explained.
+
+
+PLAN_TABLE_OUTPUT
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Plan hash value: 2217561447
+
+---------------------------------------------------------------------------------------------------------
+| Id  | Operation			| Name			| Rows	| Bytes | Cost (%CPU)| Time	|
+---------------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT		|			|   633 | 14559 |    10   (0)| 00:00:01 |
+|   1 |  TABLE ACCESS BY INDEX ROWID	| GD_BENCH_POINT	|   633 | 14559 |    10   (0)| 00:00:01 |
+|*  2 |   DOMAIN INDEX (SEL: 3.162946 %)| IDX_GD_BENCH_POSITION |	|	|    10   (0)| 00:00:01 |
+---------------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("MDSYS"."SDO_WITHIN_DISTANCE"("B"."POSITION","MDSYS"."SDO_GEOMETRY"(2001,4326,"MDSY
+	      S"."SDO_POINT_TYPE"((-7.63),33.57,NULL),NULL,NULL),'distance=5 unit=KM')='TRUE')
+
+15 rows selected.
+
+
+Explained.
+
+
+PLAN_TABLE_OUTPUT
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Plan hash value: 1415865634
+
+------------------------------------------------------------------------------------
+| Id  | Operation	  | Name	   | Rows  | Bytes | Cost (%CPU)| Time	   |
+------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT  |		   |  1000 | 23000 |	30  (17)| 00:00:01 |
+|*  1 |  TABLE ACCESS FULL| GD_BENCH_POINT |  1000 | 23000 |	30  (17)| 00:00:01 |
+------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   1 - filter("SDO_GEOM"."SDO_DISTANCE"("B"."POSITION","MDSYS"."SDO_GEOMETRY
+	      "(2001,4326,"MDSYS"."SDO_POINT_TYPE"((-7.63),33.57,NULL),NULL,NULL),0.005,'u
+	      nit=KM')<=5)
+
+15 rows selected.
+

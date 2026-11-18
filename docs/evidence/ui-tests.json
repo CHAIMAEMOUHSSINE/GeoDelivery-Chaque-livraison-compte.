@@ -1,0 +1,39 @@
+{
+  "executedAt": "2026-11-18T14:04:21.016Z",
+  "pages": [
+    {
+      "path": "clients",
+      "rows": 40
+    },
+    {
+      "path": "drivers",
+      "rows": 11
+    },
+    {
+      "path": "vehicles",
+      "rows": 11
+    },
+    {
+      "path": "depots",
+      "rows": 2
+    },
+    {
+      "path": "orders",
+      "rows": 66
+    },
+    {
+      "path": "routes",
+      "rows": 1
+    },
+    {
+      "path": "deliveries",
+      "rows": 5
+    }
+  ],
+  "crudClient": true,
+  "proximityResults": 5,
+  "previewAndConfirm": true,
+  "routeStarted": true,
+  "deliveryUpdated": true,
+  "mobileOverflow": false
+}

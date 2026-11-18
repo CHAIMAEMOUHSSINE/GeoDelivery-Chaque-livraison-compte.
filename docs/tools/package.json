@@ -1,0 +1,5 @@
+{
+  "name": "geodelivery-document-tools",
+  "private": true,
+  "dependencies": { "pptxgenjs": "^4.0.1" }
+}

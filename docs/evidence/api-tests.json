@@ -1,0 +1,153 @@
+{
+  "executedAt": "2026-11-18T14:01:30.271Z",
+  "tests": [
+    {
+      "name": "API refuse les requêtes non authentifiées",
+      "status": "PASS",
+      "durationMs": 731.08
+    },
+    {
+      "name": "Identifiants incorrects : 401",
+      "status": "PASS",
+      "durationMs": 280.5
+    },
+    {
+      "name": "Lecture clients",
+      "status": "PASS",
+      "durationMs": 281.28
+    },
+    {
+      "name": "Lecture drivers",
+      "status": "PASS",
+      "durationMs": 32.06
+    },
+    {
+      "name": "Lecture vehicles",
+      "status": "PASS",
+      "durationMs": 38.91
+    },
+    {
+      "name": "Lecture depots",
+      "status": "PASS",
+      "durationMs": 40.29
+    },
+    {
+      "name": "Lecture orders",
+      "status": "PASS",
+      "durationMs": 169.15
+    },
+    {
+      "name": "Lecture routes",
+      "status": "PASS",
+      "durationMs": 1642.19
+    },
+    {
+      "name": "Lecture deliveries",
+      "status": "PASS",
+      "durationMs": 249.49
+    },
+    {
+      "name": "Lecture dashboard/stats",
+      "status": "PASS",
+      "durationMs": 29.62
+    },
+    {
+      "name": "SDO_NN : cinq livreurs disponibles triés",
+      "status": "PASS",
+      "durationMs": 444.8
+    },
+    {
+      "name": "SDO_WITHIN_DISTANCE : tous les résultats dans le rayon",
+      "status": "PASS",
+      "durationMs": 320.17
+    },
+    {
+      "name": "Coordonnées invalides rejetées : 400",
+      "status": "PASS",
+      "durationMs": 59.23
+    },
+    {
+      "name": "Rôle DRIVER interdit sur la gestion clients : 403",
+      "status": "PASS",
+      "durationMs": 33.3
+    },
+    {
+      "name": "Aperçu : distances Oracle, 2-opt ≤ NN, aucune écriture",
+      "status": "PASS",
+      "durationMs": 575.3
+    },
+    {
+      "name": "Doublons de commandes : 400",
+      "status": "PASS",
+      "durationMs": 17.83
+    },
+    {
+      "name": "Commande absente : 404",
+      "status": "PASS",
+      "durationMs": 49.36
+    },
+    {
+      "name": "Commande unique et tournée ouverte",
+      "status": "PASS",
+      "durationMs": 72.82
+    },
+    {
+      "name": "Dépassement de capacité : 409",
+      "status": "PASS",
+      "durationMs": 32.02
+    },
+    {
+      "name": "Confirmation transactionnelle : arrêts et affectations persistés",
+      "status": "PASS",
+      "durationMs": 589.27
+    },
+    {
+      "name": "Deuxième affectation refusée : 409",
+      "status": "PASS",
+      "durationMs": 62.01
+    },
+    {
+      "name": "Commande déjà affectée non modifiable : 409",
+      "status": "PASS",
+      "durationMs": 33.58
+    },
+    {
+      "name": "Livraison sans démarrage refusée : 409",
+      "status": "PASS",
+      "durationMs": 68.28
+    },
+    {
+      "name": "Propriété des positions : autre livreur interdit, 403",
+      "status": "PASS",
+      "durationMs": 21.23
+    },
+    {
+      "name": "GPS du livreur persisté",
+      "status": "PASS",
+      "durationMs": 91.6
+    },
+    {
+      "name": "Démarrage et exécution par le propriétaire",
+      "status": "PASS",
+      "durationMs": 554.48
+    },
+    {
+      "name": "Retour arrière interdit : 409",
+      "status": "PASS",
+      "durationMs": 22.51
+    },
+    {
+      "name": "Pagination et validation des paramètres",
+      "status": "PASS",
+      "durationMs": 141.13
+    }
+  ],
+  "metrics": {
+    "initialDistanceKm": 29.81268022169847,
+    "optimizedDistanceKm": 28.336646515923157,
+    "improvementPercent": 4.951026525622535,
+    "stopCount": 5,
+    "computationTimeMs": 282.6751,
+    "distanceMode": "GEODESIC"
+  }
+}

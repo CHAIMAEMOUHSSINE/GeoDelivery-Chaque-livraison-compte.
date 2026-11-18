@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant UI as Angular
+    participant API as RouteController
+    participant OPT as OptimizationService
+    participant DB as Oracle Spatial
+    UI->>API: POST /routes/optimize (IDs, options)
+    API->>OPT: Valider et calculer
+    OPT->>DB: Coordonnées et matrice SDO_DISTANCE
+    DB-->>OPT: Distances géodésiques en km
+    OPT->>OPT: Nearest Neighbor puis 2-opt
+    OPT-->>UI: Aperçu sans écriture
+    UI->>API: POST /routes (confirmation)
+    API->>DB: Verrouiller et revalider
+    API->>OPT: Recalculer le plan
+    API->>DB: INSERT tournée / arrêts / livraisons, UPDATE statuts
+    API-->>UI: Tournée persistée

@@ -1,0 +1,15 @@
+flowchart TB
+    Angular[Angular standalone + Leaflet] -->|HTTP JSON + JWT| API[Spring Boot 3.5]
+    API --> Security[BCrypt / rôles / propriété]
+    API --> Catalog[CatalogService / OrderService]
+    API --> Route[RouteService / DeliveryService]
+    Route --> Optim[OptimizationService]
+    Optim --> NN[Nearest Neighbor puis 2-opt]
+    Optim --> Matrix[DistanceMatrixService]
+    Matrix --> Spatial[SpatialJdbcRepository]
+    Catalog --> JPA[Spring Data JPA : comptes / commandes]
+    Catalog --> JDBC[JDBC : catalogues géographiques]
+    Route --> JDBC
+    Spatial -->|SDO_NN / SDO_WITHIN_DISTANCE / SDO_DISTANCE| Oracle[(Oracle 19c + Spatial)]
+    JDBC --> Oracle
+    JPA --> Oracle

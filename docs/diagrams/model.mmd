@@ -1,0 +1,10 @@
+erDiagram
+    APP_USER ||--o| DRIVER : profile
+    DRIVER ||--o| VEHICLE : vehicle
+    CLIENT ||--o{ DELIVERY_ORDER : places
+    DRIVER ||--o{ DELIVERY_ROUTE : performs
+    DEPOT ||--o{ DELIVERY_ROUTE : starts_at
+    DELIVERY_ROUTE ||--|{ ROUTE_STOP : contains
+    DELIVERY_ORDER ||--o| ROUTE_STOP : planned_once
+    DELIVERY_ORDER ||--o| DELIVERY : fulfillment
+    ROUTE_STOP ||--o| DELIVERY : execution

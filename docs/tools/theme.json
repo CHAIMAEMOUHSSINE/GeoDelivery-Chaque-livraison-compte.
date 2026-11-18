@@ -1,0 +1,19 @@
+{
+  "name": "GeoDelivery Forest",
+  "headFontFace": "Calibri",
+  "bodyFontFace": "Calibri",
+  "colors": {
+    "dk1": "123E35",
+    "lt1": "FFFFFF",
+    "dk2": "63745B",
+    "lt2": "F4F7F0",
+    "accent1": "246D55",
+    "accent2": "CFEDAA",
+    "accent3": "E6BC72",
+    "accent4": "829C77",
+    "accent5": "76929D",
+    "accent6": "AF7B67",
+    "hlink": "246D55",
+    "folHlink": "63745B"
+  }
+}

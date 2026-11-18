@@ -1,0 +1,11 @@
+{
+  "executedAt": "2026-11-18T14:05:07.041Z",
+  "scenario": "Deux livreurs confirment simultanément les mêmes commandes",
+  "statuses": [
+    201,
+    409
+  ],
+  "uniqueWinner": true,
+  "routeId": 3,
+  "cancelledAfterTest": true
+}

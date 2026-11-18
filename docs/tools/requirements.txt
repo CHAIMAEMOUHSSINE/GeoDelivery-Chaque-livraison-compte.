@@ -1,0 +1,6 @@
+reportlab>=4.2,<5
+pypdf>=5,<7
+pymupdf>=1.25,<2
+lxml>=5,<7
+defusedxml>=0.7,<1
+python-pptx>=1,<2
